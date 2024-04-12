@@ -4,21 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0c8ae24-92ae-4f92-bc5c-e8393de28780" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/static/37c46784 .png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/download.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/my.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/child.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/control.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/filter.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/profile_username.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/static.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-    </list>
+    <list default="true" id="b0c8ae24-92ae-4f92-bc5c-e8393de28780" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -107,7 +93,7 @@
       <option name="presentableId" value="Default" />
       <updated>1712889101614</updated>
       <workItem from="1712889112925" duration="2619000" />
-      <workItem from="1712955199080" duration="3538000" />
+      <workItem from="1712955199080" duration="3565000" />
     </task>
     <servers />
   </component>

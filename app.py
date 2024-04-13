@@ -1,14 +1,30 @@
 from flask import Flask, request, render_template
-
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import text
+import pymysql
+import cryptography
+import config
 # create an instance of the Flask class
 # __name__ = name of the module
 app = Flask(__name__)
 
+app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+pymysql://{config.username}:{config.password}@{config.hostname}:{config.port}/{config.database}?charset=utf8mb4'
 
-class User:
-    def __init__(self, username, email):
-        self.username = username
-        self.email = email
+# connect to the database
+db = SQLAlchemy(app)
+# test connection
+
+with app.app_context():
+    with db.engine.connect() as conn:
+        rs = conn.execute(text('SELECT 1'))
+        print(rs.fetchone())
+
+class User(db.Model):
+    __tablename__ = 'user'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    username = db.Column(db.String(50), nullable=False)
+
+
 
 
 # route() decorator to tell Flask what URL should trigger our function

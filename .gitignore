@@ -1,2 +1,8 @@
 # Ignore config.py file
 config.py
+migrations/
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.xml

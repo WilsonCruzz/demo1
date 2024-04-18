@@ -1,6 +1,7 @@
 # Ignore config.py file
 config.py
 migrations/
+.venv/
 *.pyc
 *.pyo
 *.pyd

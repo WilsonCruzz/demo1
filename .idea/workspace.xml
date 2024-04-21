@@ -5,7 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b0c8ae24-92ae-4f92-bc5c-e8393de28780" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/static/bootstrap/bootstrap.4.6.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/css/base.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/css/detail.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/css/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/css/init.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/css/login-regist.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/css/question.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/avatar.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/jquery/jquery.3.6.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/public_question.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/register.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blueprints/auth.py" beforeDir="false" afterPath="$PROJECT_DIR$/blueprints/auth.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blueprints/qa.py" beforeDir="false" afterPath="$PROJECT_DIR$/blueprints/qa.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exts.py" beforeDir="false" afterPath="$PROJECT_DIR$/exts.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/download.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/my.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/child.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/control.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/filter.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile_username.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/static.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,10 +43,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Flask Main" />
-        <option value="HTML File" />
         <option value="CSS File" />
         <option value="JavaScript File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -83,7 +110,7 @@
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="D:\coding\Repositories\demo\.venv\Scripts\python.exe" />
       <option name="SDK_NAME" value="Python 3.12 (demo)" />
-      <option name="WORKING_DIRECTORY" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
@@ -111,6 +138,7 @@
       <workItem from="1712955199080" duration="3565000" />
       <workItem from="1712964428669" duration="7528000" />
       <workItem from="1713060994302" duration="64000" />
+      <workItem from="1713663541863" duration="7383000" />
     </task>
     <servers />
   </component>
@@ -121,6 +149,6 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/demo$demo.coverage" NAME="demo Coverage Results" MODIFIED="1712974502681" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/demo$demo.coverage" NAME="demo Coverage Results" MODIFIED="1713664739380" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>

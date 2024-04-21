@@ -5,34 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b0c8ae24-92ae-4f92-bc5c-e8393de28780" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/static/bootstrap/bootstrap.4.6.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/base.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/detail.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/init.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/login-regist.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/question.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/avatar.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/jquery/jquery.3.6.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/public_question.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blueprints/auth.py" beforeDir="false" afterPath="$PROJECT_DIR$/blueprints/auth.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blueprints/qa.py" beforeDir="false" afterPath="$PROJECT_DIR$/blueprints/qa.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exts.py" beforeDir="false" afterPath="$PROJECT_DIR$/exts.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/download.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/my.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/child.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/control.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/filter.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profile_username.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/static.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,7 +112,7 @@
       <workItem from="1712955199080" duration="3565000" />
       <workItem from="1712964428669" duration="7528000" />
       <workItem from="1713060994302" duration="64000" />
-      <workItem from="1713663541863" duration="7383000" />
+      <workItem from="1713663541863" duration="7553000" />
     </task>
     <servers />
   </component>

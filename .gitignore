@@ -7,3 +7,6 @@ migrations/
 *.pyd
 *.db
 *.xml
+.idea/
+__pycache__/
+*.log

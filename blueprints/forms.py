@@ -29,3 +29,12 @@ class RegisterForm(wtforms.Form):
         else:
             db.session.delete(captcha_model)
             db.session.commit()
+
+
+class LoginForm(wtforms.Form):
+    email = wtforms.StringField(validators=[Email(message='Please input correct email address')])
+    password = wtforms.StringField(validators=[Length(min=6, max=20, message='Please input correct password')])
+
+class QuestionForm(wtforms.Form):
+    title = wtforms.StringField(validators=[Length(min=3,max=100,message="title error")])
+    content = wtforms.StringField(validators=[Length(min=3,message="content error")])

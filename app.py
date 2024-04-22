@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask,session, g
 import config
 from exts import db, mail
 from models import UserModel
@@ -17,6 +17,27 @@ migrate = Migrate(app, db)
 
 app.register_blueprint(qa_bp)
 app.register_blueprint(auth_bp)
+
+
+# before_request/ before_first_request/ after_request
+# hook
+@app.before_request
+def my_before_request():
+    user_id = session.get("user_id")
+    if user_id:
+        user = UserModel.query.get(user_id)
+        # 設定全局變量
+        setattr(g, "user", user)
+    else:
+        setattr(g, "user", None)
+
+@app.context_processor
+def my_context_processor():
+    return {"user": g.user}
+
+
+
+
 
 
 

@@ -1,22 +1,52 @@
-from flask import Blueprint, render_template, jsonify, redirect, url_for
+from flask import Blueprint, render_template, jsonify, redirect, url_for, session
 from exts import mail, db
 from flask_mail import Message
 from flask import request
 import string
 import random
-from models import EmailCaptchaModel
-from .forms import RegisterForm
-from models import UserModel
-from werkzeug.security import generate_password_hash
+from models import EmailCaptchaModel, UserModel
+from .forms import RegisterForm, LoginForm
+from werkzeug.security import generate_password_hash, check_password_hash
+
+
 
 # url_prefix: The URL prefix that should be added to all URLs defined in the blueprint.
 # url前綴
 bp = Blueprint("auth", __name__, url_prefix="/auth")
 
 
-@bp.route('/login')
+@bp.route('/login', methods=['GET', 'POST'])
 def login():
-    return "login"
+    if request.method == 'GET':
+        return render_template('login.html')
+    else:
+        form = LoginForm(request.form)
+        if form.validate():
+            email = form.email.data
+            password = form.password.data
+            user = UserModel.query.filter_by(email=email).first()
+            if not user:
+                print('user is not exist')
+                return redirect(url_for("auth.login"))
+            # 使用函數去判斷加密後密碼和原生密碼是否匹配
+            if check_password_hash(user.password, password):
+                # cookie 不是何儲存太多數據 一般用來存放登錄授權
+                # flask的session經過加密後存在cookie中
+                # 用session把資訊存在cookie中
+                session['user_id'] = user.id
+                return redirect("/")
+            else:
+                print('password error')
+                return redirect(url_for("auth.login"))
+        else:
+            return redirect(url_for("auth.login"))
+
+
+
+@bp.route("/logout")
+def logout():
+    session.clear()
+    return redirect("/")
 
 
 @bp.route('/register', methods=['GET', 'POST'])

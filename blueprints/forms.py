@@ -1,0 +1,31 @@
+import wtforms
+from wtforms.validators import Email, Length, EqualTo
+from models import UserModel, EmailCaptchaModel
+from exts import db
+
+# 驗證前端提交的數據是否符合要求
+class RegisterForm(wtforms.Form):
+    email = wtforms.StringField(validators=[Email(message='Please input correct email address')])
+    captcha = wtforms.StringField(validators=[Length(min=6, max=6, message='Please input correct captcha')])
+    username = wtforms.StringField(validators=[Length(min=3, max=20, message='Please input correct username')])
+    password = wtforms.StringField(validators=[Length(min=6, max=20, message='Please input correct password')])
+    password_confirm = wtforms.StringField(validators=[EqualTo('password', message='Password is not same')])
+
+
+# 自定義驗證
+# 郵箱是否被註冊, 驗證碼是否正確
+    def validate_email(self, field):
+        email = field.data
+        user = UserModel.query.filter_by(email=email).first()
+        if user:
+            raise wtforms.ValidationError('Email has been registered')
+
+    def validate_captcha(self, field):
+        captcha = field.data
+        email = self.email.data
+        captcha_model = EmailCaptchaModel.query.filter_by(email=email, captcha=captcha).first()
+        if not captcha_model:
+            raise wtforms.ValidationError('Captcha is not correct')
+        else:
+            db.session.delete(captcha_model)
+            db.session.commit()

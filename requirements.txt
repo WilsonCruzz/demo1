@@ -6,9 +6,11 @@ pymysql
 python-dotenv
 Flask-SQLAlchemy
 SQLAlchemy
-
-
-
+flask_migrate
+Migrate
+Jinja2
+Flask-WTF
+cryptography
 
 
 

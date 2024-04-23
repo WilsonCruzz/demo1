@@ -2,7 +2,6 @@ Flask
 gunicorn
 datetime
 flask_mail
-random
 werkzeug.security
 wtforms
 

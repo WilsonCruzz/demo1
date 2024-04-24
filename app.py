@@ -5,6 +5,8 @@ from models import UserModel
 from blueprints.qa import bp as qa_bp
 from blueprints.auth import bp as auth_bp
 from flask_migrate import Migrate
+from dotenv import load_dotenv
+load_dotenv()
 
 app = Flask(__name__)
 # config document
@@ -36,10 +38,8 @@ def my_context_processor():
     return {"user": g.user}
 
 
-
-
-
-
-
 if __name__ == '__main__':
+    with app.app_context():
+        db.create_all()
     app.run(debug=True, host='0.0.0.0', port=8000)
+

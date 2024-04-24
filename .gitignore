@@ -9,3 +9,5 @@ migrations/
 .idea/
 __pycache__/
 *.log
+*.env
+config.env

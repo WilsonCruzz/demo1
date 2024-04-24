@@ -17,7 +17,7 @@ class EmailCaptchaModel(db.Model):
     email = db.Column(db.String(100), nullable=False)
     captcha = db.Column(db.String(100), nullable=False)
 
-class QusetionModel(db.Model):
+class QuestionModel(db.Model):
     __tablename__ = "question"
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     title = db.Column(db.String(100), nullable=False)
@@ -38,6 +38,6 @@ class AnswerModel(db.Model):
     author_id = db.Column(db.Integer, db.ForeignKey("user.id"))
 
     # Relationship
-    question = db.relationship(QusetionModel, backref=db.backref("answers", order_by=create_time.desc()))
+    question = db.relationship(QuestionModel, backref=db.backref("answers", order_by=create_time.desc()))
     author = db.relationship(UserModel, backref="answer")
 

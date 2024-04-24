@@ -1,6 +1,9 @@
 import ssl
 # config
 import os
+from dotenv import load_dotenv
+
+load_dotenv(dotenv_path='config.env')
 
 hostname = os.environ.get('DB_HOSTNAME')
 port = os.environ.get('DB_PORT')
@@ -8,8 +11,8 @@ username = os.environ.get('DB_USERNAME')
 password = os.environ.get('DB_PASSWORD')
 database = os.environ.get('DB_DATABASE')
 
-DB_URI = 'mysql+pymysql://{}:{}@{}:{}/{}?charset=utf8'.format(username, password, hostname, port, database)
-SQLALCHEMY_DATABASE_URI = DB_URI
+
+SQLALCHEMY_DATABASE_URI = os.environ.get('Internal_Database_URL')
 
 MAIL_SERVER = 'smtp.mail.yahoo.com'
 MAIL_PORT = 587

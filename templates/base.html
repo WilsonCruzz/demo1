@@ -1,38 +1,32 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <!-- 加一行测试注释 -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/bootstrap.4.6.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/init.css') }}">
 
     <title>{% block title %}{% endblock %}</title>
-<!--    详情页面自己的css,js都放在header当中-->
     {% block head %}{% endblock %}
-<!--    标题自定义-->
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand" href="#">知了问答</a>
+            <a href="/"><img src="{{ url_for('static', filename='images/georgian_logo.png') }}" alt="Georgian College Logo" width="50" height="50"></a>
+            <a class="navbar-brand" href="/">Georgian College</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/">首页 <span class="sr-only">(current)</span></a>
-                    </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('qa.public_qa')}}">发布问答</a>
+                        <a class="nav-link" href="{{ url_for('qa.public_qa')}}">Contribute Your Ideas</a>
                     </li>
                     <li class="nav-item ml-2">
                         <form class="form-inline my-2 my-lg-0" method="GET" action="{{url_for('qa.search')}}">
-                            <input class="form-control mr-sm-2" type="search" placeholder="关键字" aria-label="Search" name="q">
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜索</button>
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                         </form>
                     </li>
                 </ul>
@@ -40,17 +34,17 @@
                 <ul class="navbar-nav">
                     {% if user %}
                         <li class="nav-item">
-                            <span class="nav-link" href="#">{{user.username}}</span>
+                            <a class="nav-link" href="{{ url_for('auth.profile')}}">{{user.username}}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{url_for('auth.logout')}}">log out</a>
                         </li>
                     {% else %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url_for('auth.login')}}">login</a>
+                            <a class="nav-link" href="{{url_for('auth.login')}}">Log in</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url_for('auth.register')}}">register</a>
+                            <a class="nav-link" href="{{url_for('auth.register')}}">Sign up</a>
                         </li>
                     {% endif %}
                 </ul>
@@ -58,11 +52,14 @@
             </div>
         </div>
     </nav>
-
     <div class="container">
-        <!-- 怎么回事 -->
         {% block body%}{% endblock %}
     </div>
 </body>
-
+<footer>
+    <p>Created by Chun-Wei Wang</p>
+    <a href="https://github.com/WilsonCruzz" target="_blank"><img src="{{ url_for('static', filename='images/GitHub_logo.png') }}" alt="GitHub Logo" width="50" height="50"></a>
+    <a href="www.linkedin.com/in/chun-wei-wang-9ab9981a2" target="_blank"><img src="{{ url_for('static', filename='images/linkedin_logo.png') }}" alt="Linkedin Logo" width="50" height="50"></a>
+    <a href="https://www.georgiancollege.ca/" target="_blank"><img src="{{ url_for('static', filename='images/georgian_logo.png') }}" alt="Georgian College Logo" width="50" height="50"></a>
+</footer>
 </html>

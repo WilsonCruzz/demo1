@@ -54,7 +54,7 @@ def register():
     if request.method == 'GET':
         return render_template('register.html')
     else:
-        # 驗證用戶提交的郵箱和驗證碼是否正確
+        # validate email, username, password
         form = RegisterForm(request.form)
         if form.validate():
             email = form.email.data
@@ -68,16 +68,6 @@ def register():
             print(form.errors)
             return redirect(url_for("auth.register"))
 
-
-
-@bp.route('/question')
-def question():
-    return render_template('base.html')
-
-
-@bp.route('/search')
-def search():
-    return render_template('base.html')
 
 
 @bp.route('/captcha/email')
@@ -94,3 +84,9 @@ def get_email_captcha():
     db.session.add(email_captcha)
     db.session.commit()
     return jsonify({'code': 200, 'message': '', 'data': None})
+
+@bp.route('/profile')
+def profile():
+    user_id = session.get('user_id')
+    user = UserModel.query.get(user_id)
+    return render_template('profile.html', user=user)

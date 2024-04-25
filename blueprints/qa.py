@@ -34,10 +34,20 @@ def public_qa():
             print(form.errors)
             return redirect(url_for("qa.public_question"))
 
+@bp.route("/qa/delete/<question_id>", methods=['POST'])
+@login_required
+def delete_qa(question_id):
+    # /delete?question_id=1
+    question = QuestionModel.query.get(question_id)
+    if not question:
+        return "No such question"
+    if g.user.id != question.author_id:
+        return "You are not the author of this question"
+    db.session.delete(question)
+    db.session.commit()
+    return redirect(url_for("qa.index", question=question))
 
-# @bp.route('/public_question')
-# def public_question():
-#     return render_template('base.html')
+
 
 
 @bp.route("/qa/detail/<qa_id>")
@@ -59,8 +69,21 @@ def public_answer():
         return redirect(url_for("qa.qa_detail", qa_id=question_id))
     else:
         print(form.errors)
-        # 如果直接從form導入id驗證失敗的狀況下會取不到，所以使用request.form.get("question.id")
+        # If importing ID validation directly from the form fails, it won't be retrievable,
+        # so use request.form.get("question.id") instead.
         return redirect(url_for("qa.qa_detail", qa_id=request.form.get("question.id")))
+
+@bp.post("/answer/delete/<answer_id>")
+@login_required
+def delete_answer(answer_id):
+    answer = AnswerModel.query.get(answer_id)
+    if not answer:
+        return "No such comment"
+    if g.user.id != answer.author_id:
+        return "You are not the author of this comment"
+    db.session.delete(answer)
+    db.session.commit()
+    return redirect(url_for("qa.index"))
 
 
 @bp.route("/search")
@@ -71,6 +94,7 @@ def search():
     q = request.args.get("q")
     questions = QuestionModel.query.filter(QuestionModel.title.contains(q)).all()
     return render_template("index.html", questions=questions)
+
 
 # url傳參
 # 郵件發送

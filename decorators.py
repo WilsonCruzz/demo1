@@ -1,7 +1,7 @@
 from functools import wraps
 from flask import g, redirect, url_for
 def login_required(func):
-    # 保留function資訊
+    # remain function name and info (closure)
     @wraps(func)
     def inner(*args, **kwargs):
         if g.user:

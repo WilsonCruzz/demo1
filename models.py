@@ -8,7 +8,7 @@ class UserModel(db.Model):
     username = db.Column(db.String(100), nullable=False)
     password = db.Column(db.String(200), nullable=False)
     email = db.Column(db.String(100), nullable=False, unique=True)
-    join_time = db.Column(db.DateTime, default=datetime.now)
+    join_time = db.Column(db.DateTime, default=datetime.now().strftime("%Y-%m-%d %H:%M"))
 
 
 class EmailCaptchaModel(db.Model):
@@ -22,7 +22,7 @@ class QuestionModel(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     title = db.Column(db.String(100), nullable=False)
     content = db.Column(db.Text, nullable=False)
-    create_time = db.Column(db.DateTime, default=datetime.now)
+    create_time = db.Column(db.DateTime, default=datetime.now().strftime("%Y-%m-%d %H:%M"))
     # foreign key
     author_id = db.Column(db.Integer, db.ForeignKey("user.id"))
     author = db.relationship(UserModel, backref="questions")
@@ -31,7 +31,7 @@ class AnswerModel(db.Model):
     __tablename__ = "answer"
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     content = db.Column(db.Text, nullable=False)
-    create_time = db.Column(db.DateTime, default=datetime.now)
+    create_time = db.Column(db.DateTime, default=datetime.now().strftime("%Y-%m-%d %H:%M"))
 
     # Foreign Key
     question_id = db.Column(db.Integer, db.ForeignKey("question.id"))

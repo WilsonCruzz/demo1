@@ -3,9 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/bootstrap.4.6.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/bootstrap.4.6.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/init.css') }}">
-
     <title>{% block title %}{% endblock %}</title>
     {% block head %}{% endblock %}
 </head>
@@ -37,7 +36,7 @@
                             <a class="nav-link" href="{{ url_for('auth.profile')}}">{{user.username}}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url_for('auth.logout')}}">log out</a>
+                            <a class="nav-link" href="{{url_for('auth.logout')}}">Log out</a>
                         </li>
                     {% else %}
                         <li class="nav-item">
@@ -56,10 +55,11 @@
         {% block body%}{% endblock %}
     </div>
 </body>
+
 <footer>
     <p>Created by Chun-Wei Wang</p>
     <a href="https://github.com/WilsonCruzz" target="_blank"><img src="{{ url_for('static', filename='images/GitHub_logo.png') }}" alt="GitHub Logo" width="50" height="50"></a>
-    <a href="www.linkedin.com/in/chun-wei-wang-9ab9981a2" target="_blank"><img src="{{ url_for('static', filename='images/linkedin_logo.png') }}" alt="Linkedin Logo" width="50" height="50"></a>
+    <a href="https://www.linkedin.com/in/chun-wei-wang-9ab9981a2/" target="_blank"><img src="{{ url_for('static', filename='images/linkedin_logo.png') }}" alt="Linkedin Logo" width="50" height="50"></a>
     <a href="https://www.georgiancollege.ca/" target="_blank"><img src="{{ url_for('static', filename='images/georgian_logo.png') }}" alt="Georgian College Logo" width="50" height="50"></a>
 </footer>
 </html>

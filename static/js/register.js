@@ -1,7 +1,7 @@
 function bindEmailCaptchaClick(){
     $('#captcha-btn').click(function(event){
         var $this = $(this);
-        // 阻止默認事件
+        // prevent default action
         event.preventDefault();
 
         var email= $("input[name='email']").val();
@@ -11,7 +11,7 @@ function bindEmailCaptchaClick(){
             success:function(result){
                 var code = result['code'];
                 if (code == 200){
-                    var countdown = 5;
+                    var countdown = 30;
                     // unbind click event
                     $this.off('click');
                     var timer = setInterval(function(){
@@ -38,7 +38,7 @@ function bindEmailCaptchaClick(){
     });
 }
 
-// 整個網頁都加載完畢後再執行
+// Path: static/js/register.js
 $(function(){
     bindEmailCaptchaClick()
 });

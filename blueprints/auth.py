@@ -11,7 +11,6 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 
 # url_prefix: The URL prefix that should be added to all URLs defined in the blueprint.
-# url前綴
 bp = Blueprint("auth", __name__, url_prefix="/auth")
 
 
@@ -28,11 +27,11 @@ def login():
             if not user:
                 print('user is not exist')
                 return redirect(url_for("auth.login"))
-            # 使用函數去判斷加密後密碼和原生密碼是否匹配
+            # use function check_password_hash to check password
             if check_password_hash(user.password, password):
-                # cookie 不是何儲存太多數據 一般用來存放登錄授權
-                # flask的session經過加密後存在cookie中
-                # 用session把資訊存在cookie中
+                # Cookies are not for storing too much data, they are generally used to store login authorization
+                # Flask's session is encrypted and stored in cookies
+                # Use session to store information in cookies
                 session['user_id'] = user.id
                 return redirect("/")
             else:
@@ -74,11 +73,31 @@ def register():
 def get_email_captcha():
     # /captcha/email?email=xxx
     email = request.args.get('email')
+    existing_user = UserModel.query.filter_by(email=email).first()
+    if existing_user:
+        return jsonify({'code': 400, 'message': 'email is exist', 'data': None})
+
+    # Check if a captcha already exists for this email
+    existing_captcha = EmailCaptchaModel.query.filter_by(email=email).first()
+    if existing_captcha:
+        # Delete the existing captcha
+        db.session.delete(existing_captcha)
+        db.session.commit()
+
     source = string.digits * 6
     captcha = random.sample(source, 6)
     captcha = ''.join(captcha)
     # I/O: input/output
-    msg = Message('test code', recipients=[email], body=f'code:{captcha}')
+    msg = Message('[Verification Code] Welcome to the Georgian College Forum!', recipients=[email], body =f'''Dear User,
+
+Thank you for registering with the Georgian College Forum! Your verification code is: {captcha}.
+
+Please use this code to complete the registration process. We look forward to you sharing your ideas, engaging in discussions, and connecting with others on the forum.
+
+Wishing you a pleasant experience on the Georgian College Forum!
+
+Thank you,
+Georgian College Forum Team''')
     mail.send(msg)
     email_captcha = EmailCaptchaModel(email=email, captcha=captcha)
     db.session.add(email_captcha)

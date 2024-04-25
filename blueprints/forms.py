@@ -12,8 +12,7 @@ class RegisterForm(wtforms.Form):
     password_confirm = wtforms.StringField(validators=[EqualTo('password', message='Password is not same')])
 
 
-# 自定義驗證
-# 郵箱是否被註冊, 驗證碼是否正確
+#   check if email has been registered
     def validate_email(self, field):
         email = field.data
         user = UserModel.query.filter_by(email=email).first()
@@ -35,11 +34,12 @@ class LoginForm(wtforms.Form):
     email = wtforms.StringField(validators=[Email(message='Please input correct email address')])
     password = wtforms.StringField(validators=[Length(min=6, max=20, message='Please input correct password')])
 
+
 class QuestionForm(wtforms.Form):
     title = wtforms.StringField(validators=[Length(min=3,max=100,message="title error")])
     content = wtforms.StringField(validators=[Length(min=3,message="content error")])
 
 
 class AnswerForm(wtforms.Form):
-    content = wtforms.StringField(validators=[Length(min=3,message="content error")])
+    content = wtforms.StringField(validators=[Length(min=1, message="content error")])
     question_id = wtforms.IntegerField(validators=[InputRequired(message="must input question id")])

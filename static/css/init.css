@@ -5,8 +5,8 @@ html {
 }
 
 body {
-    min-height: 100%;
     background: transparent;
+    min-height: 100vh;
 }
 img {
     float: left;
@@ -21,11 +21,11 @@ footer {
     color: #333;
     width: 100%;
     height: 60px;
-    position: fixed;
     bottom: 0;
     padding: 20px 0;
     margin: 0;
     text-align: center;
+    position: fixed;
 }
 footer p{
     font-size: 12px;

@@ -11,7 +11,7 @@ load_dotenv()
 app = Flask(__name__)
 # config document
 app.config.from_object(config)
-# 不會在創建時跟app綁定
+# Will not bind with the app at creation time
 db.init_app(app)
 mail.init_app(app)
 
@@ -28,7 +28,7 @@ def my_before_request():
     user_id = session.get("user_id")
     if user_id:
         user = UserModel.query.get(user_id)
-        # 設定全局變量
+        # global variable
         setattr(g, "user", user)
     else:
         setattr(g, "user", None)

@@ -15,6 +15,11 @@
                 <span>Author：{{ question.author.username }}</span>
                 <span>Post time：{{ question.create_time }}</span>
             </p>
+            {% if g.user.id == question.author.id  %}
+            <form style="text-align: right;" action="{{ url_for('qa.delete_qa', question_id=question.id) }}" method="post">
+                <button class="btn btn-primary" style="background-color: rgba(255,0,0,0.66)">Delete Post</button>
+            </form>
+            {% endif %}
             <hr>
             <p class="question-content">{{ question.content }}</p>
             <hr>
@@ -29,21 +34,18 @@
                     <button class="btn btn-primary">Comment</button>
                 </div>
             </form>
-            <form action="{{ url_for('qa.delete_qa', question_id=question.id) }}" method="post">
-                <button>delete</button>
-            </form>
             <ul class="comment-group">
                 {% for answer in question.answers %}
                     <li>
                         <div class="user-info">
-                            <img class="avatar" src="{{url_for('static',filename='images/student.jpg')}}" alt="">
+                            <img class="student" src="{{url_for('static',filename='images/student.jpg')}}" alt="">
                             <span class="username">{{ answer.author.username }}</span>
                             <span class="create-time">{{ answer.create_time }}</span>
                         </div>
                         <p class="comment-content">{{ answer.content }}</p>
                         {% if g.user.id == answer.author.id %}
                             <form action="{{ url_for('qa.delete_answer',  answer_id=answer.id) }}" method="post">
-                                <button>delete comment</button>
+                                <button class="btn btn-primary" style="background-color: rgba(255,0,0,0.66)">delete comment</button>
                             </form>
                         {% endif %}
                     </li>

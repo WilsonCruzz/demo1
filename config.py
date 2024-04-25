@@ -12,7 +12,7 @@ password = os.environ.get('DB_PASSWORD')
 database = os.environ.get('DB_DATABASE')
 
 
-SQLALCHEMY_DATABASE_URI = os.environ.get('Internal_Database_URL')
+SQLALCHEMY_DATABASE_URI = os.environ.get('External_Database_URL')
 
 MAIL_SERVER = 'smtp.mail.yahoo.com'
 MAIL_PORT = 587

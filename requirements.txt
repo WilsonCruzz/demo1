@@ -1,20 +1,18 @@
 Flask
 gunicorn
-flask_mail
 wtforms
 pymysql
 python-dotenv
 Flask-SQLAlchemy
 SQLAlchemy
-flask_migrate
-Migrate
+Flask-Migrate
 Jinja2
 Flask-WTF
 cryptography
 psycopg2
 psycopg2-binary
 email_validator
-
+Flask-Mail
 
 
 

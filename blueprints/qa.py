@@ -4,12 +4,9 @@ from models import QuestionModel, AnswerModel
 from exts import db
 from decorators import login_required
 
-
-
 bp = Blueprint('qa', __name__, url_prefix='/')
 
 
-# http://127.0.0.1:5000/
 @bp.route('/')
 def index():
     questions = QuestionModel.query.order_by(QuestionModel.create_time.desc()).all()
@@ -41,13 +38,13 @@ def delete_qa(question_id):
     question = QuestionModel.query.get(question_id)
     if not question:
         return "No such question"
-    if g.user.id != question.author_id:
-        return "You are not the author of this question"
+
+    # Delete all answers related to this question
+    AnswerModel.query.filter_by(question_id=question_id).delete()
+
     db.session.delete(question)
     db.session.commit()
     return redirect(url_for("qa.index", question=question))
-
-
 
 
 @bp.route("/qa/detail/<qa_id>")
@@ -56,7 +53,7 @@ def qa_detail(qa_id):
     return render_template("detail.html", question=question)
 
 # @bp.route("/answer/public", methods=['POST'])
-@bp.post("/answer/public")
+@bp.post("/answer/public/")
 @login_required
 def public_answer():
     form = AnswerForm(request.form)
@@ -71,7 +68,7 @@ def public_answer():
         print(form.errors)
         # If importing ID validation directly from the form fails, it won't be retrievable,
         # so use request.form.get("question.id") instead.
-        return redirect(url_for("qa.qa_detail", qa_id=request.form.get("question.id")))
+        return redirect(url_for("qa.qa_detail", qa_id=request.form.get("question_id")))
 
 @bp.post("/answer/delete/<answer_id>")
 @login_required
@@ -79,8 +76,6 @@ def delete_answer(answer_id):
     answer = AnswerModel.query.get(answer_id)
     if not answer:
         return "No such comment"
-    if g.user.id != answer.author_id:
-        return "You are not the author of this comment"
     db.session.delete(answer)
     db.session.commit()
     return redirect(url_for("qa.index"))
@@ -94,14 +89,3 @@ def search():
     q = request.args.get("q")
     questions = QuestionModel.query.filter(QuestionModel.title.contains(q)).all()
     return render_template("index.html", questions=questions)
-
-
-# url傳參
-# 郵件發送
-# ajax
-# orm與數據庫
-# Jinja2模板
-# cookie和session原理
-# 搜索
-
-#
